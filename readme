@@ -1,54 +1,8 @@
-***********************************************
-This is the released code for paper: 
-Phasor Field Diffraction Based Reconstruction for Fast Non-Line-of-Sight Imaging Systems, Xiaochun Liu, Sebastian Bauer, Andreas Velten, Nature communications 2020.
-The code is under GNU General Public License (GNU GPL, GPL).
-***********************************************
-***********************************************
+This code was based off of the code released in the Phasor Field Diffraction Based Reconstruction for Fast Non-Line-of-Sight Imaging Systems paper published in nature communications 2020. 
 
-_______________________________________________
-This folder contains 3 scripts:
-1. generate_fourierDhist.m
-2. main_focusing.m
-3. main_focusing_disjoint_largeFOV.m
+I developed the python code under the supervision of the NLOS team at the University of Wisconsin Madison. This project was done in order to translate the existing MATLAB code to python in order to reap the benefits of GPU acceleration using PyTorch in the future. 
+
+While translating this code I utilized the following python libraries: matplotlib, scipy, and numpy. 
 
 
-Specifically, those 3 scripts can be viewd into three categories:
-	Two separate scripts for our proposed fast reconstruction, 
-		1. main_focusing.m
-		proposed method without spatial disjoint, used for small field of view scenario
-		2. main_focusing_disjoint_largeFOV.m
-		proposed method with spatial disjoint method, used for large field of view scenarios, such as officescene
-
-	One script for the Fourier domain histogram data generation:  		
-		1. generate_fourierDhist.m : 
-		calculate FDH from captured time domain histogram. It uses time binning data from tdata folder
-_______________________________________________
-There are two folders:
-1. ./tdata/: raw captured spatial temporal measurements
-2. ./input/: input for the reconstruction, store Fourier domain histogram used for fast reconstructions
-
-'./tdata/' can be download from https://biostat.wisc.edu/~compoptics/
-
-_______________________________________________
-One might also interested to try proposed method on different dataset.
-Our proposed fast reconstruction method requires Fourier domain wavefront, 
-This Fourier domain wavefront can be either sampled directly from hardware by modifying the photon binning code, 
-or run script 'generate_fourierDhist.m' on the captured calibrated time binning cube.
-
-With Fourier domain wavefront, one can run proposed methods directly 'main_focusing.m' or 'main_focusing_disjoint_largeFOV.m'
-
-More questions regarding to code please email Xiaochun Liu (xliu669@wisc.edu, www.xiaochunliu.com) 
-
-
-***********************************************
-The easiest way to run the scripts across each method is to change the variable "id" from 1 to 10.
-Since FDH can be captured directly from the hardware, the memory load needs for storing the time domain histogram are excluded.
-***********************************************
-***********************************************
-
-
-
-
-
-
-
+During this whole process I learned a lot about data manipulation and vectorization in python in order to accurately translate and optimize the MATLAB code. 
